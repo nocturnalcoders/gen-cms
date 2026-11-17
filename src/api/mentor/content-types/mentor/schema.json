@@ -1,0 +1,86 @@
+{
+  "kind": "collectionType",
+  "collectionName": "mentors",
+  "info": {
+    "singularName": "mentor",
+    "pluralName": "mentors",
+    "displayName": "Mentor",
+    "description": "Community mentors"
+  },
+  "options": {
+    "draftAndPublish": true,
+    "modelOptions": {
+      "kind": "collectionType"
+    }
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name",
+      "required": true,
+      "unique": true
+    },
+    "role": {
+      "type": "string",
+      "required": true
+    },
+    "company": {
+      "type": "string",
+      "required": false
+    },
+    "account_email": {
+      "type": "email",
+      "required": false,
+      "private": true
+    },
+    "avatar": {
+      "type": "media",
+      "allowedTypes": [
+        "images"
+      ],
+      "required": false,
+      "multiple": false
+    },
+    "bio": {
+      "type": "richtext",
+      "required": true
+    },
+    "tags": {
+      "type": "dynamiczone",
+      "components": [
+        "shared.skill",
+        "shared.expertise"
+      ]
+    },
+    "rating": {
+      "type": "decimal",
+      "default": 5.0
+    },
+    "sessions_count": {
+      "type": "integer",
+      "default": 0
+    },
+    "success_rate": {
+      "type": "integer",
+      "default": 100
+    },
+    "price_per_session": {
+      "type": "decimal",
+      "required": false
+    },
+    "approval": {
+      "type": "enumeration",
+      "enum": [
+        "pending",
+        "approved",
+        "rejected",
+        "suspended"
+      ],
+      "default": "approved"
+    }
+  }
+}

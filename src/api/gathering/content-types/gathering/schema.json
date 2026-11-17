@@ -1,0 +1,65 @@
+{
+  "kind": "collectionType",
+  "collectionName": "gatherings",
+  "info": {
+    "singularName": "gathering",
+    "pluralName": "gatherings",
+    "displayName": "Gathering",
+    "description": "Chapter gatherings and meetups"
+  },
+  "options": {
+    "draftAndPublish": true,
+    "modelOptions": {
+      "kind": "collectionType"
+    }
+  },
+  "attributes": {
+    "chapter": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::chapter.chapter",
+      "inversedBy": "gatherings"
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    },
+    "description": {
+      "type": "richtext",
+      "required": true
+    },
+    "banner": {
+      "type": "media",
+      "allowedTypes": [
+        "images"
+      ],
+      "required": false,
+      "multiple": false
+    },
+    "held_at": {
+      "type": "datetime",
+      "required": true
+    },
+    "location": {
+      "type": "string",
+      "required": false
+    },
+    "online_link": {
+      "type": "string",
+      "required": false
+    },
+    "max_participants": {
+      "type": "integer",
+      "required": false
+    },
+    "register_count": {
+      "type": "integer",
+      "default": 0
+    }
+  }
+}

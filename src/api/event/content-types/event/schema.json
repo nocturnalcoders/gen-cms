@@ -1,0 +1,99 @@
+{
+  "kind": "collectionType",
+  "collectionName": "events",
+  "info": {
+    "singularName": "event",
+    "pluralName": "events",
+    "displayName": "Event",
+    "description": "Community events and activities"
+  },
+  "options": {
+    "draftAndPublish": true,
+    "modelOptions": {
+      "kind": "collectionType"
+    }
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true,
+      "unique": true
+    },
+    "description": {
+      "type": "richtext",
+      "required": true
+    },
+    "banner": {
+      "type": "media",
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
+      "required": false,
+      "multiple": false
+    },
+    "event_type": {
+      "type": "enumeration",
+      "enum": [
+        "workshop",
+        "webinar",
+        "bootcamp",
+        "meetup",
+        "hackathon",
+        "coffee_meetup",
+        "sport",
+        "volunteering"
+      ],
+      "default": "meetup"
+    },
+    "start_date": {
+      "type": "datetime",
+      "required": true
+    },
+    "end_date": {
+      "type": "datetime",
+      "required": false
+    },
+    "location": {
+      "type": "string",
+      "required": false
+    },
+    "online_link": {
+      "type": "string",
+      "required": false
+    },
+    "max_participants": {
+      "type": "integer",
+      "required": false
+    },
+    "organizer": {
+      "type": "string",
+      "required": false
+    },
+    "speaker": {
+      "type": "string",
+      "required": false
+    },
+    "register_count": {
+      "type": "integer",
+      "default": 0
+    },
+    "checkin_count": {
+      "type": "integer",
+      "default": 0
+    },
+    "feedback_count": {
+      "type": "integer",
+      "default": 0
+    },
+    "avg_rating": {
+      "type": "float",
+      "default": 0
+    }
+  }
+}

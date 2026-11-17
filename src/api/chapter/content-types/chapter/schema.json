@@ -1,0 +1,88 @@
+{
+  "kind": "collectionType",
+  "collectionName": "chapters",
+  "info": {
+    "singularName": "chapter",
+    "pluralName": "chapters",
+    "displayName": "Chapter",
+    "description": "Diaspora chapters by country"
+  },
+  "options": {
+    "draftAndPublish": true,
+    "modelOptions": {
+      "kind": "collectionType"
+    }
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name",
+      "required": true,
+      "unique": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "banner": {
+      "type": "media",
+      "allowedTypes": [
+        "images"
+      ],
+      "required": false,
+      "multiple": false
+    },
+    "country": {
+      "type": "string",
+      "required": true
+    },
+    "city": {
+      "type": "string",
+      "required": true
+    },
+    "flag": {
+      "type": "string",
+      "maxLength": 16
+    },
+    "region": {
+      "type": "string",
+      "required": false
+    },
+    "members_count": {
+      "type": "integer",
+      "default": 0
+    },
+    "active_members_count": {
+      "type": "integer",
+      "default": 0
+    },
+    "upcoming_gatherings_count": {
+      "type": "integer",
+      "default": 0
+    },
+    "contact_email": {
+      "type": "email",
+      "required": false
+    },
+    "contact_phone": {
+      "type": "string",
+      "required": false
+    },
+    "social_links": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.social-link"
+    },
+    "gatherings": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::gathering.gathering",
+      "mappedBy": "chapter"
+    }
+  }
+}

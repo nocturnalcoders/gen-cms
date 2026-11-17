@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_shared_skills",
+  "info": {
+    "displayName": "Skill",
+    "icon": "asterisk"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "level": {
+      "type": "enumeration",
+      "enum": ["beginner", "intermediate", "advanced", "expert"],
+      "default": "beginner"
+    }
+  }
+}
